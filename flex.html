@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #70f3ff;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex1 {
+            flex: 1
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        .mgr {
+            margin-right: 8px;
+        }
+
+        .mgt {
+            margin-top: 8px;
+        }
+
+        .mgl {
+            margin-left: 8px;
+
+        }
+
+        .mgb {
+            margin-bottom: 8px;
+        }
+
+        .yanse {
+            background-color: #2193b0;
+
+        }
+
+        .yinying {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .daohang {
+            padding: 10px 20px;
+            border-bottom: 8px solid #70f3ff;
+        }
+
+        .zitiyanse {
+            font-style: ;
+        }
+
+        @media (max-width:600px) {
+            body {
+                background-image: linear-gradient(to right, #70f3ff 0%, #00f2fe 100%);
+            }
+
+            .shoujiyanse {
+                background-color: #24b2d2
+            }
+
+            .cebianxiaoshi {
+                display: none;
+            }
+
+            .neirong {
+                flex-direction: column;
+            }
+
+            .zuoju {
+                margin-left: 8px;
+            }
+
+            .youju {
+                margin-left: 8px;
+                flex: auto;
+            }
+
+            .shuju {
+                0 0 8px
+            }
+        }
+    </style>
+</head>
+
+<body class="flex">
+    <!--侧边栏-->
+    <div class="cebianxiaoshi mgb mgl mgt mgr yanse" style="width: 200px;">
+        <!--头像-->
+        <div class=flex style="
+            align-items: center;
+            justify-content:center;
+            border-bottom: 8px solid #70f3ff;">
+            <img width="56px " height="56px" src=" https://i.328888.xyz/2022/12/27/UVjBt.png">
+            <div style="color: #70f3ff;">秦微东</div>
+        </div>
+        <!--导航-->
+        <div class="flex1 ">
+            <div style="color: #70f3ff;" class="daohang">导航</div>
+            <div style="color: #70f3ff;" class="daohang">导航</div>
+            <div style="color: #70f3ff;" class="daohang">导航</div>
+            <div style="color: #70f3ff;" class="daohang">导航</div>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="flex1 column neirong">
+        <!--顶部栏-->
+        <div class="mgt yanse zuoju shoujiyanse" style="height: 60px;">
+        </div>
+        <!--内容-->
+        <div>
+            <!--方格-->
+            <div flex-diraction="row" class="mgt flex zuoju">
+                <div style="height: 100px;" class="yanse flex1 shoujiyanse "></div>
+                <div style="height: 100px;" class="yanse flex1 mgl shoujiyanse"></div>
+                <div style="height: 100px;" class="yanse flex1 mgl shoujiyanse"></div>
+                <div style="height: 100px;" class="yanse flex1 mgl shoujiyanse"></div>
+
+            </div>
+            <!--条格-->
+            <div style=" height: 598px;" class="mgt flex1 flex column zuoju">
+                <div class="flex1 yanse shoujiyanse"></div>
+                <div class="flex1 yanse mgt shoujiyanse"></div>
+                <div class="flex1 yanse mgt shoujiyanse"></div>
+                <div class="flex1 yanse mgt mgb shoujiyanse"></div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 8px
+    ;"></div>
+
+</body>
+
+</html>
