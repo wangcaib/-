@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #70f3ff;
+        }
+
+        .img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-image: url('./goat.gif');
+            background-size: cover;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex1 {
+            flex: 1
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        .mgr {
+            margin-right: 8px;
+        }
+
+        .mgt {
+            margin-top: 8px;
+        }
+
+        .mgl {
+            margin-left: 8px;
+
+        }
+
+        .mgb {
+            margin-bottom: 8px;
+        }
+
+        .yanse {
+            background-color: #2193b0;
+
+        }
+
+        .yinying {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .daohang {
+            padding: 10px 20px;
+            border-bottom: 8px solid #70f3ff;
+        }
+
+        .zitiyanse {
+            font-style: 2;
+        }
+
+
+        @media (max-width:600px) {
+            body {
+                background-image: linear-gradient(to right, #70f3ff 0%, #00f2fe 100%);
+            }
+
+            .shoujiyanse {
+                background-color: #24b2d2
+            }
+
+            .cebianxiaoshi {
+                display: none;
+            }
+
+            .neirong {
+                flex-direction: column;
+            }
+
+            .zuoju {
+                margin-left: 8px;
+            }
+
+            .youju {
+                margin-left: 8px;
+                flex: auto;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body class="flex ">
+    <!--侧边栏-->
+    <div class="img"></div>
+    <div class=" cebianxiaoshi mgb mgl mgt mgr yanse" style="width: 200px;">
+        <!--头像-->
+        <div class=flex style="
+            align-items: center;
+            justify-content:center;
+            border-bottom: 8px solid #70f3ff;">
+            <img width="56px " height="56x" src="蓝色vpp.png">
+            <div style="color: #70f3ff;"> &nbsp 秦微东</div>
+        </div>
+        <!--导航-->
+        <div class="flex1 ">
+            <div style="color: #70f3ff;" class="daohang">兴趣爱好</div>
+            <div style="color: #70f3ff;" class="daohang">未来规划</div>
+            <div style="color: #70f3ff;" class="daohang">人生成就</div>
+            <div style="color: #70f3ff;" class="daohang">性格特征</div>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="flex1 column neirong">
+        <!--顶部栏-->
+        <div class="mgt yanse zuoju shoujiyanse" style="height: 60px;">
+        </div>
+        <!--内容-->
+        <div>
+            <!--方格-->
+            <div flex-diraction="row" class="mgt flex zuoju">
+                <div style="height: 100px;" class="yanse flex1 shoujiyanse "></div>
+                <div style="height: 100px;" class="yanse flex1 mgl shoujiyanse"></div>
+                <div style="height: 100px;" class="yanse flex1 mgl shoujiyanse"></div>
+                <div style="height: 100px;" class="yanse flex1 mgl shoujiyanse"></div>
+
+            </div>
+            <!--条格-->
+            <div style=" height: 598px;" class="mgt flex1 flex column zuoju">
+                <div class="flex1 yanse shoujiyanse"></div>
+                <div class="flex1 yanse mgt shoujiyanse"></div>
+                <div class="flex1 yanse mgt shoujiyanse"></div>
+                <div class="flex1 yanse mgt mgb shoujiyanse">
+                    <div style="font-size:20px ;text-align:center;padding:40px;">
+                        <p style=" color:	 #70f3ff">我的网站
+                        <p>
+                            <a style=" color:	 #70f3ff" href="https://wangcaib.github.io/h/星空.html">友情链接
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 8px
+    ;"></div>
+
+</body>
+<script>
+    let img = document.querySelector('.img')
+    // 定义小图片的旋转角度
+    let deg = 0
+    // 定义小图片位于网页左侧的位置
+    let imgx = 0
+    // 定义小图片位于网页顶部的位置
+    let imgy = 0
+    // 定义小图片x轴的位置
+    let imgl = 0
+    // 定义小图片y轴的位置
+    let imgt = 0
+    // 定义小图片翻转的角度
+    let y = 0
+    // 定义一个计数器
+    let index = 0
+
+    window.addEventListener('mousemove', function (xyz) {
+        // 获取网页左侧距离的图片位置
+        imgx = xyz.x - img.offsetLeft - img.clientWidth / 2
+        // 多去网页顶部距离图片的位置
+        imgy = xyz.y - img.offsetTop - img.clientHeight / 2
+        // 套入公式，定义图片的旋转角度
+        deg = 360 * Math.atan(imgy / imgx) / (2 * Math.PI)
+        // 每当鼠标移动的时候重置index
+        index = 0
+        // 定义当前鼠标的位置
+        let x = event.clientX
+        // 当鼠标的x轴大于图片的时候，提普安就要对着鼠标，所以需要将图片翻转过来
+        // 否则就不用翻转
+        if (img.offsetLeft < x) {
+            y = -180
+        } else {
+            y = 0
+        }
+    })
+    setInterval(() => {
+        // 设置小图片的旋转和翻转
+        img.style.transform = "rotateZ(" + deg + "deg) rotateY(" + y + "deg)"
+        index++
+        // 在这里设置小图片的位置和速度，并判断小图片到达鼠标位置时停止移动
+        if (index < 50) {
+            imgl += imgx / 50
+            imgt += imgy / 50
+        }
+        img.style.left = imgl + "px"
+        img.style.top = imgt + "px"
+    }, 10)
+</script>
+
+</html>
